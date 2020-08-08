@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Microservices Training: Secure Reports Page</title> 
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h1>Microservices Training: Secure Reports Page</h1>
+			<table class="table table-striped">
+				<tr><th>Station Id</th><th>Plate</th><th>Timestamp</th></tr>
+				<tr th:each="toll : ${tolls}">
+					<td th:text="${toll.stationId}"/>
+					<td th:text="${toll.licensePlate}"/>
+					<td th:text="${toll.timestamp}"/>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</body>
+
+</html>
