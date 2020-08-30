@@ -13,7 +13,8 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class FastPassController {
 	
-	@LoadBalanced
+	//To Test - http://localhost:8082/customerdetails?fastpassid=100
+    @LoadBalanced
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();

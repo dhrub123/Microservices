@@ -13,7 +13,8 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class DashboardController {
 	
-	@LoadBalanced
+	//To Test : http://localhost:8081/dashboard?stationId=2
+    @LoadBalanced
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
