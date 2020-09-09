@@ -1,0 +1,43 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id="speakerRepository"
+	class="com.dhruba.springfundamentals.xml.repository.SpeakerRepositoryImpl">
+   </bean>
+	
+	<!-- 	setter injection -->
+	<bean id="speakerServiceFromSetter"
+		class="com.dhruba.springfundamentals.xml.service.SpeakerServiceImpl">
+		<property name="speakerRepository" ref="speakerRepository" />
+	</bean>
+	
+	<!-- 	constructor injection -->
+	<bean id="speakerServiceFromConstructor"
+		class="com.dhruba.springfundamentals.xml.service.SpeakerServiceImpl">
+		<constructor-arg index="0" ref="speakerRepository" />
+	</bean>
+	
+	<!-- 	autowire constructor injection -->
+	<bean id="speakerServiceFromConstructorAutowire"
+	class="com.dhruba.springfundamentals.xml.service.SpeakerServiceImpl"
+	autowire="constructor" />
+	
+	<!-- 	autowire setter injection by name
+	if we change method name to setRepository instead of setSpeakerRepository
+	the autowiring will fail
+	-->
+	<bean id="speakerServiceAutowireByName"
+	class="com.dhruba.springfundamentals.xml.service.SpeakerServiceImpl"
+	autowire="byName" />
+	
+	<!-- 	autowire setter injection by type-->
+	<bean id="speakerServiceAutowireByType"
+	class="com.dhruba.springfundamentals.xml.service.SpeakerServiceImpl"
+	autowire="byType" />
+	
+	
+	
+</beans>
